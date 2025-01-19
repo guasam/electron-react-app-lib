@@ -137,15 +137,29 @@ const TitlebarControls = () => {
   return (
     <div className='window-titlebar-controls'>
       <TitlebarControlButton label='minimize' svgPath={minimizePath} />
-      <TitlebarControlButton label='mximize' svgPath={maximizePath} />
+      <TitlebarControlButton label='maximize' svgPath={maximizePath} />
       <TitlebarControlButton label='close' svgPath={closePath} />
     </div>
   );
 };
 
 const TitlebarControlButton = ({ svgPath, label }: { svgPath: string; label: string }) => {
+  const handleAction = () => {
+    switch (label) {
+      case 'minimize':
+        (window as any).api.invoke('window-minimize');
+        break;
+      case 'maximize':
+        (window as any).api.invoke('window-maximize-toggle');
+        break;
+      case 'close':
+        (window as any).api.invoke('window-close');
+        break;
+    }
+  };
+
   return (
-    <div aria-label={label} className='titlebar-controlButton'>
+    <div aria-label={label} className='titlebar-controlButton' onClick={handleAction}>
       <svg width='10' height='10'>
         <path fill='currentColor' d={svgPath} />
       </svg>
