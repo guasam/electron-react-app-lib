@@ -60,8 +60,9 @@
   height: var(--window-titlebar-height);
   align-items: center;
   -webkit-app-region: drag;
-  background: var(--window-c-titlebar-background);
+  background-color: var(--window-c-titlebar-background);
   color: var(--window-c-text);
+  transition: background-color 0.3s ease;
 }
 
 .window-titlebar-icon {
@@ -117,12 +118,12 @@
 
 .titlebar-menuItem:hover .menuItem-label,
 .titlebar-menuItem.active .menuItem-label {
-  background: var(--window-c-hover);
+  background-color: var(--window-c-hover);
 }
 
 .titlebar-menuItem .menuItem-popup {
   position: fixed;
-  background: var(--window-c-popup-background);
+  background-color: var(--window-c-popup-background);
   top: 32px;
   min-width: 100px;
   border: 1px solid var(--window-c-popup-border);
@@ -146,7 +147,7 @@
 }
 
 .titlebar-menuItem .menuItem-popupItem:hover {
-  background: var(--window-c-hover);
+  background-color: var(--window-c-hover);
 }
 
 .titlebar-menuItem .menuItem-popupItem.menuItem-separator {
@@ -181,7 +182,7 @@
 }
 
 .window-content::-webkit-scrollbar-track {
-  background: var(--window-c-scrollbar-track);
+  background-color: var(--window-c-scrollbar-track);
 }
 
 .window-content::-webkit-scrollbar-thumb {
