@@ -30,6 +30,30 @@ export const Titlebar = () => {
 const TitlebarMenu = () => {
   const { menuItems } = useWindowContext().titlebar;
 
+  const { menusVisible, setMenusVisible, closeActiveMenu } = useTitlebarContext();
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.altKey) {
+        // Ignore repeated keydown events
+        if (e.repeat) return;
+        // Close active menu if it's open
+        if (menusVisible) closeActiveMenu();
+        setMenusVisible(!menusVisible);
+      }
+    };
+
+    // Add event listener for Alt key
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [menusVisible]);
+
+  // Hide menu if it's not visible or if there are no menu items
+  if (!menuItems || !menusVisible) return null;
+
   return (
     <div className='window-titlebar-menu'>
       {menuItems?.map((menu, index) => (
