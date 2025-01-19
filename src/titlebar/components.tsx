@@ -129,5 +129,26 @@ const TitlebarMenuPopupItem = ({ item }: { item: TitlebarMenuItem }) => {
 };
 
 const TitlebarControls = () => {
-  return <div className='window-titlebar-controls'>_ [] X</div>;
+  const closePath =
+    'M 0,0 0,0.7 4.3,5 0,9.3 0,10 0.7,10 5,5.7 9.3,10 10,10 10,9.3 5.7,5 10,0.7 10,0 9.3,0 5,4.3 0.7,0 Z';
+  const maximizePath = 'M 0,0 0,10 10,10 10,0 Z M 1,1 9,1 9,9 1,9 Z';
+  const minimizePath = 'M 0,5 10,5 10,6 0,6 Z';
+
+  return (
+    <div className='window-titlebar-controls'>
+      <TitlebarControlButton label='minimize' svgPath={minimizePath} />
+      <TitlebarControlButton label='mximize' svgPath={maximizePath} />
+      <TitlebarControlButton label='close' svgPath={closePath} />
+    </div>
+  );
+};
+
+const TitlebarControlButton = ({ svgPath, label }: { svgPath: string; label: string }) => {
+  return (
+    <div aria-label={label} className='titlebar-controlButton'>
+      <svg width='10' height='10'>
+        <path fill='currentColor' d={svgPath} />
+      </svg>
+    </div>
+  );
 };
