@@ -1,6 +1,9 @@
 import { BrowserWindow, ipcMain, shell } from 'electron';
 
 export const registerWindowIPC = (mainWindow: BrowserWindow) => {
+  ipcMain.handle('is-window-minimizable', () => mainWindow.isMinimizable());
+  ipcMain.handle('is-window-maximizable', () => mainWindow.isMaximizable());
+
   ipcMain.handle('window-minimize', () => {
     mainWindow.minimize();
   });
