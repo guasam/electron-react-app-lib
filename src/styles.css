@@ -1,4 +1,5 @@
 :root {
+  color-scheme: dark;
   --window-icon-height: 16px;
   --window-title-margin: 42px;
   --window-titlebar-height: 34px;
@@ -21,6 +22,9 @@
 }
 
 :root.light {
+  color-scheme: light;
+  --window-titlebar-font-weight: 500;
+
   --window-c-titlebar-background: #f0f0f0;
   --window-c-text: #000000c8;
   --window-c-hover: #dcdcdc;
@@ -72,9 +76,10 @@
 }
 
 .window-titlebar-title {
-  font-size: var(--window-titlebar-font-size);
   flex: 1;
+  font-size: var(--window-titlebar-font-size);
   margin-left: var(--window-title-margin);
+  font-weight: var(--window-titlebar-font-weight, normal);
 }
 
 .window-titlebar-title[data-centered] {
@@ -106,6 +111,7 @@
   padding: 2px 8px;
   cursor: pointer;
   border-radius: 4px;
+  font-weight: var(--window-titlebar-font-weight, normal);
 }
 
 .titlebar-menuItem:hover .menuItem-label,
