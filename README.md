@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This project is an Electron application integrated with React. It serves as a boilerplate for building cross-platform desktop applications using web technologies.
+This project is a custom library for Electron React App. It can be used as a building block for adding custom window, custom titlebar, file menu items in Electron apps.
 
 ## Features
 
