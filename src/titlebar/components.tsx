@@ -35,7 +35,9 @@ export const Titlebar = () => {
 
   return (
     <div className='window-titlebar'>
-      <div className='window-titlebar-icon'>{iconUrl}</div>
+      <div className='window-titlebar-icon'>
+        <img src={iconUrl} />
+      </div>
       <div
         className='window-titlebar-title'
         {...(titleCentered && { 'data-centered': true })}

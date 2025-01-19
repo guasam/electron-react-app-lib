@@ -23,6 +23,13 @@
   position: absolute;
   left: 0;
   top: 0;
+  width: 30px;
+  height: 30px;
+  padding: 6px 1rem;
+}
+
+.window-titlebar-icon img {
+  width: 100%;
 }
 
 .window-titlebar-title {
