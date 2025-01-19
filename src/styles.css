@@ -5,7 +5,9 @@
   --window-titlebar-height: 34px;
   --window-titlebar-font-size: 13px;
   --window-scrollbar-width: 12px;
+  --window-background-transition-duration: 0.3s;
 
+  --window-c-background: #1c1c1c;
   --window-c-titlebar-background: #282828;
   --window-c-text: #ffffffc8;
   --window-c-hover: #3c3c3c;
@@ -25,6 +27,7 @@
   color-scheme: light;
   --window-titlebar-font-weight: 500;
 
+  --window-c-background: #fff;
   --window-c-titlebar-background: #f0f0f0;
   --window-c-text: #000000c8;
   --window-c-hover: #dcdcdc;
@@ -45,6 +48,8 @@
   display: flex;
   flex-direction: column;
   user-select: none;
+  background-color: var(--window-c-background);
+  transition: background-color var(--window-background-transition-duration) ease;
 }
 
 .window-content {
@@ -62,7 +67,7 @@
   -webkit-app-region: drag;
   background-color: var(--window-c-titlebar-background);
   color: var(--window-c-text);
-  transition: background-color 0.3s ease;
+  transition: background-color var(--window-background-transition-duration) ease;
 }
 
 .window-titlebar-icon {
