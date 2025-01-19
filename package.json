@@ -1,10 +1,16 @@
 {
   "name": "@guasam/electron-react-app",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "description": "",
+  "main": "./dist/index.js",
+  "description": "Internal library & components package for electron-react-app by Guasam",
+  "author": "Guasam",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/guasam/electron-react-app-lib"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -35,7 +41,13 @@
     "dist/styles.css"
   ],
   "keywords": [
-    "bun"
+    "bun",
+    "electron",
+    "react",
+    "library",
+    "@guasam/electron-react-app",
+    "electron-window",
+    "custom-window-titlebar"
   ],
   "license": "MIT",
   "devDependencies": {

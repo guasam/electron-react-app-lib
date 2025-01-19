@@ -117,7 +117,7 @@ const TitlebarMenuPopupItem = ({ item }: { item: TitlebarMenuItem }) => {
   const { setActiveMenuIndex } = useTitlebarContext();
 
   function handleAction() {
-    (window as any).api.invoke(item.action, ...(item.actionParams as unknown[]));
+    (window as any).api.invoke(item.action, ...(item.actionParams ? item.actionParams : []));
     setActiveMenuIndex(null);
   }
 
