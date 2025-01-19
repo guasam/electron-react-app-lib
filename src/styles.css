@@ -16,6 +16,7 @@
   position: relative;
   height: 30px;
   align-items: center;
+  -webkit-app-region: drag;
 }
 
 .window-titlebar-icon {
@@ -40,6 +41,7 @@
   position: absolute;
   right: 0;
   top: 0;
+  -webkit-app-region: no-drag;
 }
 
 .window-titlebar-menu {
@@ -48,6 +50,7 @@
   position: absolute;
   top: 0;
   left: 50px;
+  -webkit-app-region: no-drag;
 }
 
 .titlebar-menuItem .menuItem-label {
