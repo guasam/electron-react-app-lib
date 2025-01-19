@@ -5,19 +5,21 @@ import { TitlebarContextProvider, useTitlebarContext } from './provider';
 
 export interface TitlebarProps {
   title: string;
-  centered?: boolean;
+  titleCentered?: boolean;
   iconUrl?: string;
   menuItems?: TitlebarMenu[];
 }
 
 export const Titlebar = () => {
-  const { title, iconUrl } = useWindowContext().titlebar;
+  const { title, iconUrl, titleCentered } = useWindowContext().titlebar;
 
   return (
     <TitlebarContextProvider>
       <div className='window-titlebar'>
         <div className='window-titlebar-icon'>{iconUrl}</div>
-        <div className='window-titlebar-title'>{title}</div>
+        <div className='window-titlebar-title' data-era-centered={titleCentered}>
+          {title}
+        </div>
         <TitlebarMenu />
         <TitlebarControls />
       </div>

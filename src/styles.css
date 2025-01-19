@@ -12,9 +12,27 @@
 }
 
 .window-titlebar {
+  display: flex;
   position: relative;
   height: 30px;
-  display: flex;
+  align-items: center;
+}
+
+.window-titlebar-icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.window-titlebar-title {
+  font-size: 13px;
+  flex: 1;
+  padding-left: 50px;
+}
+
+.window-titlebar-title[data-era-centered='true'] {
+  text-align: center;
+  padding-left: 0;
 }
 
 .window-titlebar-controls {
@@ -27,6 +45,9 @@
 .window-titlebar-menu {
   display: flex;
   flex-direction: row;
+  position: absolute;
+  top: 0;
+  left: 50px;
 }
 
 .titlebar-menuItem .menuItem-label {

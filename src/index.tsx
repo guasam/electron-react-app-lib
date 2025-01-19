@@ -18,7 +18,7 @@ export const WindowContextProvider = ({ children, titlebar }: WindowContextProvi
   const defaultTitlebar: TitlebarProps = {
     title: 'Electron React App',
     iconUrl: 'something.icon',
-    centered: false,
+    titleCentered: false,
     menuItems,
   };
 
