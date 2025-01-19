@@ -117,7 +117,7 @@ const menuItems: TitlebarMenu[] = [
     items: [
       {
         name: 'Maximize',
-        action: 'window-toggle-maximize',
+        action: 'window-maximize-toggle',
         shortcut: 'Toggle',
       },
       {

@@ -9,7 +9,7 @@ export const registerWindowIPC = (mainWindow: BrowserWindow) => {
     mainWindow.maximize();
   });
 
-  ipcMain.handle('window-toggle-maximize', () => {
+  ipcMain.handle('window-maximize-toggle', () => {
     if (mainWindow.isMaximized()) {
       mainWindow.unmaximize();
     } else {
