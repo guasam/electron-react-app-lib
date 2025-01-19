@@ -33,7 +33,8 @@
   --window-c-popup-shadow: hsla(0, 0%, 0%, 0.1);
   --window-c-separator: #80808033;
   --window-c-control-hover: #0000001a;
-  --window-c-control-close-hover: #ff5f56;
+  --window-c-control-close-hover: #ff453b;
+  --window-c-control-close-hover-text: #fff;
   --window-c-scrollbar-track: #e0e0e0;
   --window-c-scrollbar-thumb: #b0b0b0;
   --window-c-scrollbar-thumb-hover: #888888cf;
@@ -171,6 +172,7 @@
 
 .titlebar-controlButton[aria-label='close']:hover {
   background-color: var(--window-c-control-close-hover);
+  color: var(--window-c-control-close-hover-text, inherit);
 }
 
 /* Custom scrollbar for window content */
