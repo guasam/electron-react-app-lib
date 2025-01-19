@@ -14,15 +14,17 @@
 .window-titlebar {
   display: flex;
   position: relative;
-  height: 30px;
+  height: 34px;
   align-items: center;
   -webkit-app-region: drag;
+  background: #282828;
+  color: #ffffffbd;
 }
 
 .window-titlebar-icon {
   position: absolute;
-  left: 1rem;
-  top: 0.5rem;
+  left: 12px;
+  top: 10px;
   height: 16px;
 }
 
@@ -34,7 +36,7 @@
 .window-titlebar-title {
   font-size: 13px;
   flex: 1;
-  padding-left: 50px;
+  margin-left: 42px;
 }
 
 .window-titlebar-title[data-centered] {
