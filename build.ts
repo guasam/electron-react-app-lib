@@ -4,9 +4,9 @@ import './src/styles.css';
 import './src/titlebar/components';
 
 const defaultBuildConfig: BuildConfig = {
-  entrypoints: ['./src/index.tsx'],
+  entrypoints: ['./src/index.tsx', './src/window.ts'],
   outdir: './dist',
-  external: ['react'],
+  external: ['react', 'electron'],
 };
 
 await Promise.all([

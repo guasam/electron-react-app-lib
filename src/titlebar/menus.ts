@@ -6,8 +6,8 @@ export type TitlebarMenu = {
 export type TitlebarMenuItem = {
   name: string;
   action?: string;
+  actionParams?: (string | number | object)[];
   shortcut?: string;
-  value?: string | number;
   items?: TitlebarMenuItem[];
 };
 
@@ -17,7 +17,7 @@ const menuItems: TitlebarMenu[] = [
     items: [
       {
         name: 'Exit',
-        action: 'exit',
+        action: 'window-close',
       },
     ],
   },
@@ -26,12 +26,12 @@ const menuItems: TitlebarMenu[] = [
     items: [
       {
         name: 'Undo',
-        action: 'undo',
+        action: 'web-undo',
         shortcut: 'Ctrl+Z',
       },
       {
         name: 'Redo',
-        action: 'redo',
+        action: 'web-redo',
         shortcut: 'Ctrl+Y',
       },
       {
@@ -39,29 +39,29 @@ const menuItems: TitlebarMenu[] = [
       },
       {
         name: 'Cut',
-        action: 'cut',
+        action: 'web-cut',
         shortcut: 'Ctrl+X',
       },
       {
         name: 'Copy',
-        action: 'copy',
+        action: 'web-copy',
         shortcut: 'Ctrl+C',
       },
       {
         name: 'Paste',
-        action: 'paste',
+        action: 'web-paste',
         shortcut: 'Ctrl+V',
       },
       {
         name: 'Delete',
-        action: 'delete',
+        action: 'web-delete',
       },
       {
         name: '__',
       },
       {
         name: 'Select All',
-        action: 'select_all',
+        action: 'web-select-all',
         shortcut: 'Ctrl+A',
       },
     ],
@@ -71,17 +71,17 @@ const menuItems: TitlebarMenu[] = [
     items: [
       {
         name: 'Reload',
-        action: 'reload',
+        action: 'web-reload',
         shortcut: 'Ctrl+R',
       },
       {
         name: 'Force Reload',
-        action: 'force_reload',
+        action: 'web-force-reload',
         shortcut: 'Ctrl+Shift+R',
       },
       {
-        name: 'Toogle Developer Tools',
-        action: 'toggle_devtools',
+        name: 'Toggle Developer Tools',
+        action: 'web-toggle-devtools',
         shortcut: 'Ctrl+Shift+I',
       },
       {
@@ -89,17 +89,17 @@ const menuItems: TitlebarMenu[] = [
       },
       {
         name: 'Actual Size',
-        action: 'actual_size',
+        action: 'web-actual-size',
         shortcut: 'Ctrl+0',
       },
       {
         name: 'Zoom In',
-        action: 'zoom_in',
+        action: 'web-zoom-in',
         shortcut: 'Ctrl++',
       },
       {
         name: 'Zoom Out',
-        action: 'zoom_out',
+        action: 'web-zoom-out',
         shortcut: 'Ctrl+-',
       },
       {
@@ -107,7 +107,7 @@ const menuItems: TitlebarMenu[] = [
       },
       {
         name: 'Toggle Fullscreen',
-        action: 'toggle_fullscreen',
+        action: 'web-toggle-fullscreen',
         shortcut: 'F11',
       },
     ],
@@ -117,17 +117,17 @@ const menuItems: TitlebarMenu[] = [
     items: [
       {
         name: 'Maximize',
-        action: 'toggle_maximize',
+        action: 'window-toggle-maximize',
         shortcut: 'Toggle',
       },
       {
         name: 'Minimize',
-        action: 'minimize',
+        action: 'window-minimize',
         shortcut: 'Ctrl+M',
       },
       {
         name: 'Close',
-        action: 'exit',
+        action: 'window-close',
         shortcut: 'Ctrl+W',
       },
     ],
@@ -137,8 +137,8 @@ const menuItems: TitlebarMenu[] = [
     items: [
       {
         name: 'Guasam',
-        action: 'open_url',
-        value: 'https://github.com/guasam',
+        action: 'web-open-url',
+        actionParams: ['https://github.com/guasam'],
         shortcut: '@guasam',
       },
     ],

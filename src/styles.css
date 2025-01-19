@@ -43,3 +43,8 @@
   box-shadow: 2px 1px 4px hsla(0, 0%, 0%, 0.5);
   z-index: 10000;
 }
+
+.titlebar-menuItem .menuItem-popupItem {
+  display: flex;
+  flex-direction: row;
+}

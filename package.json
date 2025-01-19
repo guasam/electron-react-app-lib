@@ -2,15 +2,17 @@
   "name": "@guasam/electron-react-app",
   "type": "module",
   "version": "0.0.0",
-  "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "description": "",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "import": "./dist/index.js"
+    },
+    "./window": {
+      "types": "./dist/window.d.ts",
+      "import": "./dist/window.js"
     },
     "./styles.css": "./dist/styles.css"
   },
@@ -18,6 +20,9 @@
     "*": {
       "styles.css": [
         "./dist/styles.css"
+      ],
+      "window": [
+        "./dist/window.d.ts"
       ]
     }
   },
@@ -37,6 +42,7 @@
     "@types/bun": "^1.1.10",
     "@types/react": "^19.0.7",
     "bun-plugin-dts": "^0.3.0",
+    "electron": "^34.0.0",
     "react": "^19.0.0"
   }
 }

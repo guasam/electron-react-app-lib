@@ -98,7 +98,32 @@ const TitlebarMenuItem = ({ menu, index }: { menu: TitlebarMenu; index: number }
       >
         {menu.name}
       </div>
-      {activeMenuIndex === index && <div className='menuItem-popup'>This is good name</div>}
+      {activeMenuIndex === index && <TitlebarMenuPopup menu={menu} />}
+    </div>
+  );
+};
+
+const TitlebarMenuPopup = ({ menu }: { menu: TitlebarMenu }) => {
+  return (
+    <div className='menuItem-popup'>
+      {menu.items.map((item, index) => (
+        <TitlebarMenuPopupItem key={index} item={item} />
+      ))}
+    </div>
+  );
+};
+
+const TitlebarMenuPopupItem = ({ item }: { item: TitlebarMenuItem }) => {
+  const { setActiveMenuIndex } = useTitlebarContext();
+
+  function handleAction() {
+    (window as any).api.invoke(item.action, ...(item.actionParams as unknown[]));
+    setActiveMenuIndex(null);
+  }
+
+  return (
+    <div className='menuItem-popupItem' onClick={handleAction}>
+      <div>{item.name}</div>
     </div>
   );
 };
