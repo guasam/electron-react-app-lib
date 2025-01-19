@@ -150,6 +150,10 @@ const TitlebarMenuPopupItem = ({ item }: { item: TitlebarMenuItem }) => {
     setActiveMenuIndex(null);
   }
 
+  if (item.name === '---') {
+    return <div className='menuItem-popupItem menuItem-separator' />;
+  }
+
   return (
     <div className='menuItem-popupItem' onClick={handleAction}>
       <div>{item.name}</div>

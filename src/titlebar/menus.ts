@@ -35,7 +35,7 @@ const menuItems: TitlebarMenu[] = [
         shortcut: 'Ctrl+Y',
       },
       {
-        name: '__',
+        name: '---',
       },
       {
         name: 'Cut',
@@ -57,7 +57,7 @@ const menuItems: TitlebarMenu[] = [
         action: 'web-delete',
       },
       {
-        name: '__',
+        name: '---',
       },
       {
         name: 'Select All',
@@ -85,7 +85,7 @@ const menuItems: TitlebarMenu[] = [
         shortcut: 'Ctrl+Shift+I',
       },
       {
-        name: '__',
+        name: '---',
       },
       {
         name: 'Actual Size',
@@ -103,7 +103,7 @@ const menuItems: TitlebarMenu[] = [
         shortcut: 'Ctrl+-',
       },
       {
-        name: '__',
+        name: '---',
       },
       {
         name: 'Toggle Fullscreen',
