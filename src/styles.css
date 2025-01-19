@@ -42,6 +42,7 @@
 .window-titlebar-title[data-centered] {
   text-align: center;
   padding-left: 0;
+  margin: 0;
 }
 
 .window-titlebar-controls {
