@@ -1,18 +1,16 @@
 import { BrowserWindow, ipcMain, shell } from 'electron';
 
+const handleIPC = (channel: string, handler: (...args: any[]) => void) => {
+  ipcMain.handle(channel, handler);
+};
+
 export const registerWindowIPC = (mainWindow: BrowserWindow) => {
-  ipcMain.handle('is-window-minimizable', () => mainWindow.isMinimizable());
-  ipcMain.handle('is-window-maximizable', () => mainWindow.isMaximizable());
-
-  ipcMain.handle('window-minimize', () => {
-    mainWindow.minimize();
-  });
-
-  ipcMain.handle('window-maximize', () => {
-    mainWindow.maximize();
-  });
-
-  ipcMain.handle('window-maximize-toggle', () => {
+  handleIPC('is-window-minimizable', () => mainWindow.isMinimizable());
+  handleIPC('is-window-maximizable', () => mainWindow.isMaximizable());
+  handleIPC('window-minimize', () => mainWindow.minimize());
+  handleIPC('window-maximize', () => mainWindow.maximize());
+  handleIPC('window-close', () => mainWindow.close());
+  handleIPC('window-maximize-toggle', () => {
     if (mainWindow.isMaximized()) {
       mainWindow.unmaximize();
     } else {
@@ -20,67 +18,20 @@ export const registerWindowIPC = (mainWindow: BrowserWindow) => {
     }
   });
 
-  ipcMain.handle('window-close', () => {
-    mainWindow.close();
-  });
-
-  ipcMain.handle('web-undo', () => {
-    mainWindow.webContents.undo();
-  });
-
-  ipcMain.handle('web-redo', () => {
-    mainWindow.webContents.redo();
-  });
-
-  ipcMain.handle('web-cut', () => {
-    mainWindow.webContents.cut();
-  });
-
-  ipcMain.handle('web-copy', () => {
-    mainWindow.webContents.copy();
-  });
-
-  ipcMain.handle('web-paste', () => {
-    mainWindow.webContents.paste();
-  });
-
-  ipcMain.handle('web-delete', () => {
-    mainWindow.webContents.delete();
-  });
-
-  ipcMain.handle('web-select-all', () => {
-    mainWindow.webContents.selectAll();
-  });
-
-  ipcMain.handle('web-reload', () => {
-    mainWindow.webContents.reload();
-  });
-
-  ipcMain.handle('web-force-reload', () => {
-    mainWindow.webContents.reloadIgnoringCache();
-  });
-
-  ipcMain.handle('web-toggle-devtools', () => {
-    mainWindow.webContents.toggleDevTools();
-  });
-
-  ipcMain.handle('web-actual-size', () => {
-    mainWindow.webContents.setZoomLevel(0);
-  });
-
-  ipcMain.handle('web-zoom-in', () => {
-    mainWindow.webContents.setZoomLevel(mainWindow.webContents.zoomLevel + 0.5);
-  });
-
-  ipcMain.handle('web-zoom-out', () => {
-    mainWindow.webContents.setZoomLevel(mainWindow.webContents.zoomLevel - 0.5);
-  });
-
-  ipcMain.handle('web-toggle-fullscreen', () => {
-    mainWindow.setFullScreen(!mainWindow.fullScreen);
-  });
-
-  ipcMain.handle('web-open-url', (e, url) => {
-    shell.openExternal(url);
-  });
+  const webContents = mainWindow.webContents;
+  handleIPC('web-undo', () => webContents.undo());
+  handleIPC('web-redo', () => webContents.redo());
+  handleIPC('web-cut', () => webContents.cut());
+  handleIPC('web-copy', () => webContents.copy());
+  handleIPC('web-paste', () => webContents.paste());
+  handleIPC('web-delete', () => webContents.delete());
+  handleIPC('web-select-all', () => webContents.selectAll());
+  handleIPC('web-reload', () => webContents.reload());
+  handleIPC('web-force-reload', () => webContents.reloadIgnoringCache());
+  handleIPC('web-toggle-devtools', () => webContents.toggleDevTools());
+  handleIPC('web-actual-size', () => webContents.setZoomLevel(0));
+  handleIPC('web-zoom-in', () => webContents.setZoomLevel(webContents.zoomLevel + 0.5));
+  handleIPC('web-zoom-out', () => webContents.setZoomLevel(webContents.zoomLevel - 0.5));
+  handleIPC('web-toggle-fullscreen', () => mainWindow.setFullScreen(!mainWindow.fullScreen));
+  handleIPC('web-open-url', (e, url) => shell.openExternal(url));
 };
