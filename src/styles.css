@@ -23,3 +23,24 @@
   right: 0;
   top: 0;
 }
+
+.window-titlebar-menu {
+  display: flex;
+  flex-direction: row;
+}
+
+.titlebar-menuItem .menuItem-label {
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.titlebar-menuItem .menuItem-popup {
+  display: none;
+  position: fixed;
+  background: #292a2d;
+  min-width: 70px;
+  border: 1px solid #3c4043;
+  padding: 0.25rem 0;
+  box-shadow: 2px 1px 4px hsla(0, 0%, 0%, 0.5);
+  z-index: 10000;
+}

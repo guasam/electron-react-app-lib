@@ -1,5 +1,6 @@
 import { createContext, useContext, useEffect } from 'react';
-import { Titlebar, TitlebarProps } from './titlebar';
+import { Titlebar, type TitlebarProps } from './titlebar/components';
+import menuItems from './titlebar/menus';
 import './styles.css';
 
 interface WindowContextProps {
@@ -13,6 +14,7 @@ export const WindowContextProvider = ({ children }: { children: React.ReactNode 
     title: 'Electron Window',
     iconUrl: 'something.icon',
     centered: false,
+    menuItems,
   };
 
   useEffect(() => {
@@ -21,7 +23,7 @@ export const WindowContextProvider = ({ children }: { children: React.ReactNode 
     if (parent) {
       parent.classList.add('window-frame');
     }
-  }, [])
+  }, []);
 
   return (
     <WindowContext value={{ titlebar }}>

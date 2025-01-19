@@ -1,6 +1,7 @@
 import type { BuildConfig } from 'bun';
 import dts from 'bun-plugin-dts';
 import './src/styles.css';
+import './src/titlebar/components';
 
 const defaultBuildConfig: BuildConfig = {
   entrypoints: ['./src/index.tsx'],
