@@ -36,7 +36,7 @@
   --window-c-control-close-hover: #ff5f56;
   --window-c-scrollbar-track: #e0e0e0;
   --window-c-scrollbar-thumb: #b0b0b0;
-  --window-c-scrollbar-thumb-hover: #888;
+  --window-c-scrollbar-thumb-hover: #888888cf;
   --window-c-text-shadow: #0000001a;
 }
 
@@ -185,7 +185,7 @@
 .window-content::-webkit-scrollbar-thumb {
   background-color: var(--window-c-scrollbar-thumb);
   border-radius: 4px;
-  border: 3px solid #1e1e1e;
+  border: 3px solid var(--window-c-scrollbar-track);
 }
 
 .window-content::-webkit-scrollbar-thumb:hover {
