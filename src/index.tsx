@@ -3,19 +3,26 @@ import { Titlebar, type TitlebarProps } from './titlebar/components';
 import menuItems from './titlebar/menus';
 import './styles.css';
 
-interface WindowContextProps {
+interface WindowContext {
   titlebar: TitlebarProps;
 }
 
-const WindowContext = createContext<WindowContextProps | undefined>(undefined);
+interface WindowContextProviderProps {
+  children: React.ReactNode;
+  titlebar?: TitlebarProps;
+}
 
-export const WindowContextProvider = ({ children }: { children: React.ReactNode }) => {
-  const titlebar = {
-    title: 'Electron Window',
+const WindowContext = createContext<WindowContext | undefined>(undefined);
+
+export const WindowContextProvider = ({ children, titlebar }: WindowContextProviderProps) => {
+  const defaultTitlebar: TitlebarProps = {
+    title: 'Electron React App',
     iconUrl: 'something.icon',
     centered: false,
     menuItems,
   };
+
+  titlebar = { ...defaultTitlebar, ...titlebar };
 
   useEffect(() => {
     // Add class to parent element

@@ -4,9 +4,9 @@ import { TitlebarContextProvider, useTitlebarContext } from './provider';
 
 export interface TitlebarProps {
   title: string;
-  centered: boolean;
-  iconUrl: string;
-  menuItems: TitlebarMenu[];
+  centered?: boolean;
+  iconUrl?: string;
+  menuItems?: TitlebarMenu[];
 }
 
 export const Titlebar = () => {
@@ -29,7 +29,7 @@ const TitlebarMenu = () => {
 
   return (
     <div className='window-titlebar-menu'>
-      {menuItems.map((menu, index) => (
+      {menuItems?.map((menu, index) => (
         <TitlebarMenuItem key={index} menu={menu} index={index} />
       ))}
     </div>
