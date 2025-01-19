@@ -1,0 +1,25 @@
+.window-frame {
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+}
+
+.window-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.window-titlebar {
+  position: relative;
+  height: 30px;
+  display: flex;
+}
+
+.window-titlebar-controls {
+  display: flex;
+  position: absolute;
+  right: 0;
+  top: 0;
+}

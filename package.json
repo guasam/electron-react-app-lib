@@ -1,0 +1,42 @@
+{
+  "name": "@guasam/electron-react-app",
+  "type": "module",
+  "version": "0.0.0",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "description": "",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./styles.css": "./dist/styles.css"
+  },
+  "typesVersions": {
+    "*": {
+      "styles.css": [
+        "./dist/styles.css"
+      ]
+    }
+  },
+  "scripts": {
+    "build": "bun run build.ts",
+    "prepublishOnly": "bun run build"
+  },
+  "files": [
+    "dist",
+    "dist/styles.css"
+  ],
+  "keywords": [
+    "bun"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@types/bun": "^1.1.10",
+    "@types/react": "^19.0.7",
+    "bun-plugin-dts": "^0.3.0",
+    "react": "^19.0.0"
+  }
+}
