@@ -157,6 +157,7 @@ const TitlebarMenuPopupItem = ({ item }: { item: TitlebarMenuItem }) => {
   return (
     <div className='menuItem-popupItem' onClick={handleAction}>
       <div>{item.name}</div>
+      {item.shortcut && <div className='menuItem-shortcut'>{item.shortcut}</div>}
     </div>
   );
 };
