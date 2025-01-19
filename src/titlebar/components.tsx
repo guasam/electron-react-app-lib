@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useWindowContext } from '..';
 import type { TitlebarMenu, TitlebarMenuItem } from './menus';
-import { TitlebarContextProvider, useTitlebarContext } from './provider';
+import { useTitlebarContext } from './provider';
 
 export interface TitlebarProps {
   title: string;
@@ -12,24 +12,6 @@ export interface TitlebarProps {
 
 export const Titlebar = () => {
   const { title, iconUrl, titleCentered } = useWindowContext().titlebar;
-
-  return (
-    <TitlebarContextProvider>
-      <div className='window-titlebar'>
-        <div className='window-titlebar-icon'>{iconUrl}</div>
-        <div className='window-titlebar-title' data-era-centered={titleCentered}>
-          {title}
-        </div>
-        <TitlebarMenu />
-        <TitlebarControls />
-      </div>
-    </TitlebarContextProvider>
-  );
-};
-
-const TitlebarMenu = () => {
-  const { menuItems } = useWindowContext().titlebar;
-
   const { menusVisible, setMenusVisible, closeActiveMenu } = useTitlebarContext();
 
   useEffect(() => {
@@ -51,8 +33,27 @@ const TitlebarMenu = () => {
     };
   }, [menusVisible]);
 
-  // Hide menu if it's not visible or if there are no menu items
-  if (!menuItems || !menusVisible) return null;
+  return (
+    <div className='window-titlebar'>
+      <div className='window-titlebar-icon'>{iconUrl}</div>
+      <div
+        className='window-titlebar-title'
+        {...(titleCentered && { 'data-centered': true })}
+        style={{ visibility: menusVisible ? 'hidden' : 'visible' }}
+      >
+        {title}
+      </div>
+      {menusVisible && <TitlebarMenu />}
+      <TitlebarControls />
+    </div>
+  );
+};
+
+const TitlebarMenu = () => {
+  const { menuItems } = useWindowContext().titlebar;
+
+  // If there are no menu items, hide the menu
+  if (!menuItems) return null;
 
   return (
     <div className='window-titlebar-menu'>

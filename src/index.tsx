@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect } from 'react';
 import { Titlebar, type TitlebarProps } from './titlebar/components';
 import menuItems from './titlebar/menus';
 import './styles.css';
+import { TitlebarContextProvider } from './titlebar/provider';
 
 interface WindowContext {
   titlebar: TitlebarProps;
@@ -34,7 +35,9 @@ export const WindowContextProvider = ({ children, titlebar }: WindowContextProvi
 
   return (
     <WindowContext value={{ titlebar }}>
-      <Titlebar />
+      <TitlebarContextProvider>
+        <Titlebar />
+      </TitlebarContextProvider>
       <WindowContent>{children}</WindowContent>
     </WindowContext>
   );

@@ -31,7 +31,7 @@
   padding-left: 50px;
 }
 
-.window-titlebar-title[data-era-centered='true'] {
+.window-titlebar-title[data-centered] {
   text-align: center;
   padding-left: 0;
 }
