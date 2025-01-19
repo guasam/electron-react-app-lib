@@ -42,22 +42,17 @@ const TitlebarMenuItem = ({ menu, index }: { menu: TitlebarMenu; index: number }
   const togglePopup = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-
-    if (activeMenuIndex === index) {
-      setActiveMenuIndex(null);
-      return;
-    }
-
-    setActiveMenuIndex(index);
-    console.log(index);
+    setActiveMenuIndex(activeMenuIndex === index ? null : index);
   };
+
+  const handleMouseOver = () => activeMenuIndex != null && setActiveMenuIndex(index);
 
   return (
     <div className='titlebar-menuItem'>
-      <div className='menuItem-label' onClick={(e) => togglePopup(e)}>
-        {menu.name} - {activeMenuIndex}
+      <div className='menuItem-label' onClick={(e) => togglePopup(e)} onMouseOver={handleMouseOver}>
+        {menu.name}
       </div>
-      <div className='menuItem-popup'>This is good name</div>
+      {activeMenuIndex === index && <div className='menuItem-popup'>This is good name</div>}
     </div>
   );
 };

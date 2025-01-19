@@ -35,7 +35,6 @@
 }
 
 .titlebar-menuItem .menuItem-popup {
-  display: none;
   position: fixed;
   background: #292a2d;
   min-width: 70px;
