@@ -41,7 +41,7 @@
   --window-c-scrollbar-track: #e0e0e0;
   --window-c-scrollbar-thumb: #b0b0b0;
   --window-c-scrollbar-thumb-hover: #888888cf;
-  --window-c-text-shadow: #0000001a;
+  --window-c-text-shadow: transparent;
 }
 
 .window-frame {

@@ -7,6 +7,7 @@ export type TitlebarMenuItem = {
   name: string;
   action?: string;
   actionParams?: (string | number | object)[];
+  actionCallback?: () => void;
   shortcut?: string;
   items?: TitlebarMenuItem[];
 };
@@ -115,6 +116,17 @@ const menuItems: TitlebarMenu[] = [
   {
     name: 'Window',
     items: [
+      {
+        name: 'Dark Mode',
+        action: 'window-darkmode-toggle',
+        shortcut: 'Toggle',
+        actionCallback: () => {
+          document.documentElement.classList.toggle('light');
+        },
+      },
+      {
+        name: '---',
+      },
       {
         name: 'Maximize',
         action: 'window-maximize-toggle',
