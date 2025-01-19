@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect } from 'react';
 import { Titlebar, type TitlebarProps } from './titlebar/components';
-import menuItems from './titlebar/menus';
+import { menuItems } from './menus';
 import './styles.css';
 import { TitlebarContextProvider } from './titlebar/provider';
 

@@ -1,18 +1,18 @@
-export type TitlebarMenu = {
+export interface TitlebarMenu {
   name: string;
   items: TitlebarMenuItem[];
-};
+}
 
-export type TitlebarMenuItem = {
+export interface TitlebarMenuItem {
   name: string;
   action?: string;
   actionParams?: (string | number | object)[];
   actionCallback?: () => void;
   shortcut?: string;
   items?: TitlebarMenuItem[];
-};
+}
 
-const menuItems: TitlebarMenu[] = [
+export const menuItems: TitlebarMenu[] = [
   {
     name: 'File',
     items: [
@@ -156,5 +156,3 @@ const menuItems: TitlebarMenu[] = [
     ],
   },
 ];
-
-export default menuItems;

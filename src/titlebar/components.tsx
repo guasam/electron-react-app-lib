@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useWindowContext } from '..';
-import type { TitlebarMenu, TitlebarMenuItem } from './menus';
+import { TitlebarMenu, TitlebarMenuItem } from '../menus';
 import { useTitlebarContext } from './provider';
 
 export interface TitlebarProps {

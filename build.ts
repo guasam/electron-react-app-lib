@@ -4,7 +4,7 @@ import './src/styles.css';
 import './src/titlebar/components';
 
 const defaultBuildConfig: BuildConfig = {
-  entrypoints: ['./src/index.tsx', './src/window.ts'],
+  entrypoints: ['./src/index.tsx', './src/window.ts', './src/menus.ts'],
   outdir: './dist',
   external: ['react', 'electron'],
 };
