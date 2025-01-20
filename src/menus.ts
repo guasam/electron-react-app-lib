@@ -12,7 +12,7 @@ export interface TitlebarMenuItem {
   items?: TitlebarMenuItem[];
 }
 
-export const menuItems: TitlebarMenu[] = [
+const items: TitlebarMenu[] = [
   {
     name: 'File',
     items: [
@@ -156,3 +156,5 @@ export const menuItems: TitlebarMenu[] = [
     ],
   },
 ];
+
+export { items as menuItems};
