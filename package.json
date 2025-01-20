@@ -1,7 +1,7 @@
 {
   "name": "@guasam/electron-react-app",
   "type": "module",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "main": "./dist/index.js",
