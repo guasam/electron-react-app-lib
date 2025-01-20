@@ -33,7 +33,7 @@
     }
   },
   "scripts": {
-    "build": "bun run build.ts",
+    "build": "cross-env NODE_ENV=production bun run build.ts",
     "prepublishOnly": "bun run build"
   },
   "files": [
@@ -54,6 +54,7 @@
     "@types/bun": "^1.1.10",
     "@types/react": "^19.0.7",
     "bun-plugin-dts": "^0.3.0",
+    "cross-env": "^7.0.3",
     "electron": "^34.0.0",
     "react": "^19.0.0"
   }
