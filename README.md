@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This project is a custom library for Electron React App. It can be used as a building block for adding custom window, custom titlebar, file menu items in Electron apps.
+Custom library for Electron React App, used for creating custom window, custom titlebar & file menus in Electron desktop apps.
 
 ## Features
 
